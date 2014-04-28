@@ -10,5 +10,8 @@ func init() {
   m.Get("/", func() string {
     return "Hello world!"
   })
+  m.Post("/tea", func() (int, string) {
+    return 418, "I'm a teapot."
+  })
   http.Handle("/", m)
 }
