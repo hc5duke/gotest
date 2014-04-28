@@ -1,14 +1,14 @@
-package main
+package hello
 
-import "github.com/go-martini/martini"
+import (
+  "fmt"
+  "net/http"
+)
 
-func main() {
-  m := martini.Classic()
-  m.Get("/", func() string {
-    return "Hello world!"
-  })
-  m.Post("/tea", func() (int, string) {
-    return 418, "i'm a teapot" // HTTP 418 : "i'm a teapot"
-  })
-  m.Run()
+func init() {
+  http.HandleFunc("/", hello)
+}
+
+func hello(w http.ResponseWriter, r *http.Request) {
+  fmt.Fprintf(w, "<h1>Hello, world</h1>")
 }
