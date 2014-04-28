@@ -2,12 +2,7 @@ application: platinum-trees-564
 version: 1
 runtime: go
 api_version: go1
-threadsafe: yes
 
 handlers:
-- url: /favicon\.ico
-  static_files: favicon.ico
-  upload: favicon\.ico
-
-- url: .*
-  script: server.go
+- url: /.*
+  script: _go_app
